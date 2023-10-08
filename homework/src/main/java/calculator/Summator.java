@@ -4,49 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Summator {
-    private Integer sum = 0;
-    private Integer prevValue = 0;
-    private Integer prevPrevValue = 0;
-    private Integer sumLastThreeValues = 0;
-    private Integer someValue = 0;
-    private final List<Data> listValues = new ArrayList<>();
+    private int sum = 0;
+    private int prevValue = 0;
+    private int prevPrevValue = 0;
+    private int sumLastThreeValues = 0;
+    private int someValue = 0;
+    private final int[] listValues = new int[6_600_000];
+    private int index = 0;
 
-    //!!! сигнатуру метода менять нельзя
     public void calc(Data data) {
-        listValues.add(data);
-        if (listValues.size() % 6_600_000 == 0) {
-            listValues.clear();
-        }
-        sum += data.getValue();
 
-        sumLastThreeValues = data.getValue() + prevValue + prevPrevValue;
-
+        int value = data.getValue();
+        sum = sum + value;
+        sumLastThreeValues = value + prevValue + prevPrevValue;
         prevPrevValue = prevValue;
-        prevValue = data.getValue();
+        prevValue = value;
 
-        for (var idx = 0; idx < 3; idx++) {
-            someValue += (sumLastThreeValues * sumLastThreeValues / (data.getValue() + 1) - sum);
-            someValue = Math.abs(someValue) + listValues.size();
+        int temporal = 0;
+        for (int idx = 0; idx < 3; idx++) {
+            temporal += (sumLastThreeValues * sumLastThreeValues / (value + 1) - sum);
+            temporal = Math.abs(temporal) + index;
         }
+
+        someValue = temporal;
+        listValues[index % 6_600_000] = value;
+        index++;
     }
 
-    public Integer getSum() {
+    public int getSum() {
         return sum;
     }
 
-    public Integer getPrevValue() {
+    public int getPrevValue() {
         return prevValue;
     }
 
-    public Integer getPrevPrevValue() {
+    public int getPrevPrevValue() {
         return prevPrevValue;
     }
 
-    public Integer getSumLastThreeValues() {
+    public int getSumLastThreeValues() {
         return sumLastThreeValues;
     }
 
-    public Integer getSomeValue() {
+    public int getSomeValue() {
         return someValue;
     }
 }
