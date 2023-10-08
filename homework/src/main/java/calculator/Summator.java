@@ -16,7 +16,6 @@ public class Summator {
 
         int value = data.getValue();
         sum = sum + value;
-
         sumLastThreeValues = value + prevValue + prevPrevValue;
         prevPrevValue = prevValue;
         prevValue = value;
