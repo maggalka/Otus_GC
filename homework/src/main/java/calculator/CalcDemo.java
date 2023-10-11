@@ -2,12 +2,12 @@ package calculator;
 
 
 /*
--Xms3072m
--Xmx3072m
+-Xms256m
+-Xmx256m
 -XX:+HeapDumpOnOutOfMemoryError
--XX:HeapDumpPath=./homework/logs/heapdump.hprof
+-XX:HeapDumpPath=./logs/heapdump.hprof
 -XX:+UseG1GC
--Xlog:gc=debug:file=./homework/logs/gc-%p-%t.log:tags,uptime,time,level:filecount=5,filesize=10m
+-Xlog:gc=debug:file=./logs/gc-%p-%t.log:tags,uptime,time,level:filecount=5,filesize=10m
 */
 
 
