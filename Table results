@@ -1,0 +1,18 @@
+256 - out of memory
+2gb - spend msec:4795, sec:4
+5 gb - spend msec:8825, sec:8
+3 gb -spend msec:5576, sec:5
+1gb -spend msec:4506, sec:4
+512mb - spend msec:7558, sec:7
+700mb - spend msec:6903, sec:6
+
+Оптимально - 1024 мб
+
+После оптимизации -
+256 - spend msec:1711, sec:1
+2gb - spend msec:1253, sec:1
+5gb - spend msec:1115, sec:1
+1gb- spend msec:1305, sec:1
+512mb- spend msec:1173, sec:1
+700mb- spend msec:1131, sec:1
+
